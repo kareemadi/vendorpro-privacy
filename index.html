@@ -3,51 +3,205 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VendorPro Privacy Policy</title>
+<title>VendorPro: inventory and profit tracking for card vendors</title>
+<meta name="description" content="Track every card you buy, sell and trade at card shows. Scan cards, see TCGplayer and eBay comps, and know your profit after every show. Free on iPhone.">
+<meta property="og:title" content="VendorPro: built for card vendors">
+<meta property="og:description" content="Scan, price and track every buy, sell and trade at your shows. Know your profit before you pack up.">
+<meta property="og:image" content="https://getvendorpro.app/img/4-vendor-mode.jpg">
+<meta property="og:url" content="https://getvendorpro.app/">
+<meta name="theme-color" content="#1c150f">
+<link rel="icon" type="image/png" href="/img/icon-64.png">
+<link rel="apple-touch-icon" href="/img/icon-180.png">
+<meta name="apple-itunes-app" content="app-id=6822562906">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  body { font: 16px/1.6 -apple-system, system-ui, Segoe UI, Roboto, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 20px; color: #1c150f; }
-  h1 { font-size: 28px; margin-bottom: 4px; }
-  h2 { font-size: 19px; margin-top: 32px; }
-  .updated { color: #6b5a44; margin-top: 0; }
-  li { margin-bottom: 6px; }
+  :root {
+    --bg: #1c150f; --surface: #28201a; --surface-alt: #332921; --border: #3c3024;
+    --text: #f3e9d7; --muted: #a8967a; --faint: #6b5a44;
+    --green: #8fbf78; --amber: #e2a53c; --blue: #6c96d6; --purple: #7c52c9; --purple-light: #a98ae8; --red: #e0725f;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.6 Karla, system-ui, -apple-system, Segoe UI, sans-serif; }
+  a { color: inherit; }
+  h1, h2, h3 { font-family: 'Bricolage Grotesque', system-ui, sans-serif; line-height: 1.05; margin: 0; letter-spacing: -0.02em; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  header { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+  .brand { display: flex; align-items: center; gap: 10px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; text-decoration: none; }
+  .brand img { width: 34px; height: 34px; border-radius: 8px; }
+  nav a { color: var(--muted); text-decoration: none; margin-left: 22px; font-weight: 500; }
+  nav a:hover { color: var(--text); }
+
+  .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 48px; align-items: center; padding: 24px 0 64px; }
+  .stripes { display: flex; gap: 6px; margin-bottom: 22px; }
+  .stripes i { width: 22px; height: 5px; border-radius: 3px; display: block; }
+  .hero h1 { font-size: clamp(42px, 6.4vw, 72px); font-weight: 800; }
+  .hero h1 em { font-style: normal; color: var(--purple-light); }
+  .lede { color: var(--muted); font-size: 20px; margin: 22px 0 30px; max-width: 34ch; }
+  .cta { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; background: var(--text); color: var(--bg); text-decoration: none; font-weight: 700; padding: 14px 22px; border-radius: 12px; }
+  .btn svg { width: 20px; height: 20px; }
+  .btn:hover { background: #fff; }
+  .note { color: var(--faint); font-size: 15px; }
+  .hero-shot { justify-self: center; width: min(100%, 290px); border-radius: 28px; box-shadow: 0 30px 80px rgba(124, 82, 201, 0.25); }
+
+  .pill-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+  .pill { border: 1px solid var(--border); color: var(--muted); padding: 6px 12px; border-radius: 999px; font-size: 14px; }
+
+  section { padding: 64px 0; border-top: 1px solid var(--border); }
+  .section-title { font-size: clamp(30px, 4vw, 44px); font-weight: 800; margin-bottom: 14px; }
+  .section-lede { color: var(--muted); max-width: 56ch; margin: 0 0 40px; }
+
+  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+  .feature { background: var(--bg); padding: 26px; }
+  .feature h3 { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+  .feature p { color: var(--muted); margin: 0; font-size: 16px; }
+  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; vertical-align: 3px; }
+
+  .shots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .shots img { width: 100%; border-radius: 18px; border: 1px solid var(--border); }
+
+  .waitlist { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 36px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+  .waitlist h2 { font-size: 32px; font-weight: 800; margin-bottom: 10px; }
+  .waitlist p { color: var(--muted); margin: 0; }
+  form { display: flex; gap: 10px; flex-wrap: wrap; }
+  input[type=email] { flex: 1 1 220px; background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; font: inherit; }
+  input[type=email]:focus { outline: 2px solid var(--purple); outline-offset: 1px; }
+  button { background: var(--purple); color: #fff; border: 0; border-radius: 12px; padding: 14px 22px; font: 700 17px Karla, sans-serif; cursor: pointer; }
+  button:disabled { opacity: 0.6; cursor: default; }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .msg { width: 100%; font-size: 15px; min-height: 22px; margin-top: 4px; }
+  .msg.ok { color: var(--green); } .msg.err { color: var(--red); }
+
+  footer { border-top: 1px solid var(--border); padding: 32px 0 48px; color: var(--faint); font-size: 15px; display: flex; flex-wrap: wrap; gap: 18px; justify-content: space-between; }
+  footer a { color: var(--muted); text-decoration: none; margin-right: 18px; }
+  footer a:hover { color: var(--text); }
+
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; padding-top: 16px; }
+    .hero-shot { width: min(100%, 320px); }
+    .features { grid-template-columns: 1fr; }
+    .shots { grid-template-columns: repeat(2, 1fr); }
+    .waitlist { grid-template-columns: 1fr; padding: 26px; }
+    nav a:not(.keep) { display: none; }
+  }
 </style>
 </head>
 <body>
-<h1>VendorPro Privacy Policy</h1>
-<p class="updated">Last updated: September 26, 2026</p>
+<div class="wrap">
+  <header>
+    <a class="brand" href="/"><img src="/img/icon-64.png" alt="">VendorPro</a>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#android">Android</a>
+      <a class="keep" href="/support.html">Support</a>
+    </nav>
+  </header>
 
-<p>VendorPro is an inventory and profit-tracking app for trading card vendors. This policy explains what information the app collects, how it is used, and how you can delete it.</p>
+  <div class="hero">
+    <div>
+      <div class="stripes"><i style="background:var(--blue)"></i><i style="background:var(--purple)"></i><i style="background:var(--red)"></i></div>
+      <h1>Know your profit <em>before you pack up.</em></h1>
+      <p class="lede">VendorPro tracks every card you buy, sell and trade at a show, so you leave knowing exactly what you made.</p>
+      <div class="cta">
+        <a class="btn" href="https://apps.apple.com/app/id6822562906">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.7c-.03-2.6 2.13-3.86 2.23-3.92-1.22-1.78-3.11-2.02-3.78-2.05-1.6-.16-3.13.95-3.94.95-.82 0-2.07-.93-3.4-.9-1.75.03-3.36 1.02-4.26 2.58-1.82 3.15-.47 7.8 1.3 10.36.87 1.25 1.9 2.65 3.24 2.6 1.3-.05 1.8-.84 3.37-.84 1.57 0 2.02.84 3.4.81 1.4-.02 2.29-1.27 3.15-2.53.99-1.45 1.4-2.86 1.42-2.93-.03-.01-2.72-1.04-2.73-4.13zM13.79 5.05c.72-.87 1.2-2.08 1.07-3.29-1.03.04-2.29.69-3.03 1.56-.66.77-1.24 2-1.09 3.18 1.15.09 2.33-.58 3.05-1.45z"/></svg>
+          Download on the App Store
+        </a>
+        <span class="note">Free on iPhone. Android is coming soon.</span>
+      </div>
+      <div class="pill-row">
+        <span class="pill">Pokémon</span><span class="pill">One Piece</span><span class="pill">Japanese Pokémon</span><span class="pill">Slabs &amp; sealed</span>
+      </div>
+    </div>
+    <img class="hero-shot" src="/img/4-vendor-mode.jpg" alt="VendorPro's Vendor Mode screen showing sales, revenue and profit for a show, with Sell, Buy, Trade and Scan a stack buttons" width="600" height="1304">
+  </div>
 
-<h2>Information we collect</h2>
-<ul>
-  <li><strong>Account information.</strong> Your email address and password when you create an account. Passwords are stored hashed by our authentication provider; we cannot read them.</li>
-  <li><strong>Business data you enter.</strong> Inventory items, purchase and sale records, trade records, show sessions, prices, notes, and locations you type into the app.</li>
-  <li><strong>Photos.</strong> Photos of cards that you take with the camera or choose from your photo library. The app only accesses photos you explicitly select or capture.</li>
-</ul>
+  <section id="features">
+    <h2 class="section-title">Built for the other side of the table</h2>
+    <p class="section-lede">Most card apps are made for collectors tracking a binder. VendorPro is made for vendors buying, selling and trading all day at a show.</p>
+    <div class="features">
+      <div class="feature"><h3><span class="dot" style="background:var(--purple)"></span>Vendor Mode</h3><p>Log sales, buys and trades in seconds, with a built-in trade credit calculator.</p></div>
+      <div class="feature"><h3><span class="dot" style="background:var(--green)"></span>Show recaps</h3><p>Revenue, cost and net cash flow for every show, ready the moment you pack up.</p></div>
+      <div class="feature"><h3><span class="dot" style="background:var(--amber)"></span>Card scanning</h3><p>Scan raw cards, slabs and Japanese cards, or a whole stack at once with a set buy percentage.</p></div>
+      <div class="feature"><h3><span class="dot" style="background:var(--blue)"></span>Comps that matter</h3><p>TCGplayer market prices for raw cards, eBay sold listings for slabs, and sealed product prices.</p></div>
+      <div class="feature"><h3><span class="dot" style="background:var(--red)"></span>Works with no signal</h3><p>Convention hall Wi-Fi drops out. Sales and buys are saved and sync when you're back online.</p></div>
+      <div class="feature"><h3><span class="dot" style="background:var(--muted)"></span>Your inventory, your data</h3><p>Price moves on every card, price alerts, and CSV import and export whenever you want it.</p></div>
+    </div>
+  </section>
 
-<h2>How we use it</h2>
-<p>We use this information only to provide the app: to show your inventory, calculate your profit and cash flow, and identify and price your cards. We do not sell your data, we do not use it for advertising, and we do not track you across other apps or websites.</p>
+  <section>
+    <h2 class="section-title">See it in action</h2>
+    <p class="section-lede">From the first buy of the morning to the recap at the end of the day.</p>
+    <div class="shots">
+      <img src="/img/1-activity.jpg" alt="Activity screen with the day's sales, buys and trades" loading="lazy" width="600" height="1304">
+      <img src="/img/2-card.jpg" alt="Card details with market price and price history" loading="lazy" width="600" height="1304">
+      <img src="/img/3-recap.jpg" alt="Show recap with profit and cash flow" loading="lazy" width="600" height="1304">
+      <img src="/img/5-inventory.jpg" alt="Inventory list with values and price moves" loading="lazy" width="600" height="1304">
+    </div>
+  </section>
 
-<h2>Card scanning and price lookups</h2>
-<ul>
-  <li><strong>Scanning.</strong> When you scan a card, the photo is processed on your device (text recognition) and may also be sent, through our server, to Anthropic's Claude API to identify the card. The image is used only to return the card's name, set, and number; we do not keep it unless you choose to save it as the card's photo.</li>
-  <li><strong>Prices.</strong> To look up market prices, the app sends card names and set or number identifiers (not personal information) to public card databases: TCGdex and optcgapi.com.</li>
-</ul>
+  <section id="android">
+    <div class="waitlist">
+      <div>
+        <h2>Android is on the way</h2>
+        <p>Leave your email and we'll send you one message when VendorPro is on Google Play. Nothing else.</p>
+      </div>
+      <form id="waitlist" novalidate>
+        <input type="email" name="email" placeholder="you@example.com" autocomplete="email" required aria-label="Email address">
+        <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+        <button type="submit">Notify me</button>
+        <div class="msg" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
 
-<h2>Where your data is stored</h2>
-<p>Your account, inventory, and transaction data are stored with Supabase (our database, authentication, and file-storage provider). Card photos you save are stored in a file bucket; each photo is reachable by its direct link, so anyone who has that exact link could view it. Links are not listed or published by the app.</p>
+  <footer>
+    <div><a href="/support.html">Support</a><a href="/privacy/">Privacy policy</a><a href="mailto:support@getvendorpro.app">support@getvendorpro.app</a></div>
+    <div>© 2026 VendorPro</div>
+  </footer>
+</div>
 
-<h2>Deleting your data</h2>
-<p>You can permanently delete your account and everything under it, including inventory, transactions, sessions, and photos, from inside the app: tap the settings icon (top right), then <em>Delete my account</em>. Deletion is immediate and cannot be undone. You can also clear your business data while keeping your account using <em>Delete everything</em> on the same screen.</p>
-<p>Shared show listings you created may remain in the app's public show directory, but are detached from your account.</p>
-
-<h2>Children</h2>
-<p>VendorPro is not directed at children under 13, and we do not knowingly collect information from them.</p>
-
-<h2>Changes to this policy</h2>
-<p>If this policy changes, the updated version will be posted at this address with a new date.</p>
-
-<h2>Contact</h2>
-<p>Questions or requests: <a href="mailto:kareemadi12@gmail.com">kareemadi12@gmail.com</a></p>
+<script>
+  // Public key only; the waitlist table can't be read with it, and
+  // join_waitlist() is the one thing it can call here.
+  const SUPABASE_URL = 'https://ytssixsnzgpvzmozjgvo.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl0c3NpeHNuemdwdnptb3pqZ3ZvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM1MzUzMjAsImV4cCI6MjA5OTExMTMyMH0.4XJOWBpR9F_UdJGFC7ZS8bvHeZ3PCHhQVI-m_WV0xds';
+  const form = document.getElementById('waitlist');
+  const msg = form.querySelector('.msg');
+  const button = form.querySelector('button');
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const email = form.email.value.trim();
+    msg.className = 'msg';
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(email)) {
+      msg.textContent = 'Please enter a valid email address.';
+      msg.classList.add('err');
+      return;
+    }
+    button.disabled = true;
+    msg.textContent = 'Adding you…';
+    try {
+      const response = await fetch(SUPABASE_URL + '/rest/v1/rpc/join_waitlist', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', apikey: SUPABASE_ANON_KEY, authorization: 'Bearer ' + SUPABASE_ANON_KEY },
+        body: JSON.stringify({ p_email: email, p_website: form.website.value })
+      });
+      const body = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(body.message || 'Something went wrong. Please try again.');
+      msg.textContent = "You're on the list. We'll email you when Android is ready.";
+      msg.classList.add('ok');
+      form.reset();
+    } catch (error) {
+      msg.textContent = error.message;
+      msg.classList.add('err');
+    } finally {
+      button.disabled = false;
+    }
+  });
+</script>
 </body>
 </html>
