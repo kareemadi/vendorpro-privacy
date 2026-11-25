@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>VendorPro: inventory and profit tracking for card vendors</title>
-<meta name="description" content="Track every card you buy, sell and trade at card shows. Scan cards, see TCGplayer and eBay comps, and know your profit after every show. Free on iPhone.">
+<meta name="description" content="Track every card you buy, sell and trade at card shows. Scan cards, check TCGplayer prices and eBay sold listings, and know your profit after every show. Free on iPhone.">
 <meta property="og:title" content="VendorPro: built for card vendors">
 <meta property="og:description" content="Scan, price and track every buy, sell and trade at your shows. Know your profit before you pack up.">
 <meta property="og:image" content="https://getvendorpro.app/img/4-vendor-mode.jpg">
@@ -137,6 +137,7 @@
   .price { font: 800 clamp(72px, 9vw, 130px)/0.9 'Bricolage Grotesque', sans-serif; letter-spacing: -0.04em; }
   .pricing h2 { font-size: clamp(28px, 3vw, 40px); font-weight: 800; margin-top: 14px; }
   .ticks { list-style: none; padding: 0; margin: 26px 0 30px; display: grid; gap: 10px; font-size: 18px; }
+  .pricing .fine { color: var(--muted); font-size: 15px; max-width: 44ch; margin: -14px 0 26px; }
   .ticks li { display: flex; gap: 12px; align-items: baseline; }
   .ticks li::before { content: ''; flex: 0 0 9px; height: 9px; border-radius: 50%; background: var(--green-ink); transform: translateY(-1px); }
 
@@ -289,7 +290,7 @@
       <h2>Someone drops a binder on your table.</h2>
       <p>Scan a stack card after card, set your buy percentage, and make the offer while they're still standing there.</p>
     </div>
-    <div class="phone"><img src="/img/v2/screen-inventory.jpg" alt="Inventory with 54 cards in stock, $6,092 invested and $9,431 sticker value" loading="lazy" width="600" height="1300"></div>
+    <div class="phone"><img src="/img/v2/screen-stack.jpg" alt="Review your stack: $208.95 market value, buy at 90%, an offer of $188.06 and a Show customer button" loading="lazy" width="600" height="1300"></div>
   </section>
 
   <section class="panel step" aria-label="Checking a price">
@@ -299,7 +300,7 @@
       <h2>Price check before you sell.</h2>
       <p>Market price by condition, your asking price against it, and a one-tap link to what it actually sold for on eBay.</p>
     </div>
-    <div class="phone"><img src="/img/v2/screen-card.jpg" alt="Card details for Lugia with condition, market price of $500 and a link to eBay sold listings" loading="lazy" width="600" height="1300"></div>
+    <div class="phone"><img src="/img/v2/screen-card.jpg" alt="Card details for Charmeleon from 151 with paid and asking prices, a market price of $51.02 and a link to eBay sold listings" loading="lazy" width="600" height="1300"></div>
   </section>
 
   <section class="panel step" aria-label="Working without signal">
@@ -355,7 +356,7 @@
     <div class="grid">
       <article class="card"><img src="/img/v2/t-vm-menu.jpg" alt="" loading="lazy"><h3>Vendor Mode</h3><p>Log sales, buys and trades in seconds, with a built-in trade credit calculator.</p></article>
       <article class="card"><img src="/img/v2/t-card-head.jpg" alt="" loading="lazy"><h3>Card scanning</h3><p>Raw cards, slabs with grader and cert, Japanese cards, or a whole stack at once.</p></article>
-      <article class="card"><img src="/img/v2/t-card-price.jpg" alt="" loading="lazy"><h3>Comps that matter</h3><p>TCGplayer market prices for raw cards, eBay sold listings for slabs, and sealed prices.</p></article>
+      <article class="card"><img src="/img/v2/t-card-price.jpg" alt="" loading="lazy"><h3>Comps that matter</h3><p>TCGplayer market prices for raw cards and sealed, plus a one-tap link to eBay sold listings.</p></article>
       <article class="card"><img src="/img/v2/t-recap-profit.jpg" alt="" loading="lazy"><h3>Show recaps</h3><p>Revenue, cost and net cash flow for every show, ready the moment you pack up.</p></article>
       <article class="card"><img src="/img/v2/t-inv-rows.jpg" alt="" loading="lazy"><h3>Price moves</h3><p>Your inventory is repriced every night, with price moves on every card and price alerts.</p></article>
       <article class="card"><img src="/img/v2/t-inv-stats.jpg" alt="" loading="lazy"><h3>Your data, your way</h3><p>Import your old spreadsheet from CSV and export everything whenever you want.</p></article>
@@ -373,6 +374,7 @@
       <li>Every show recap and report</li>
       <li>No credit card, no trial clock</li>
     </ul>
+    <p class="fine">The vendor tools stay free for good. An optional Pro plan may add extras later.</p>
     <div><a class="btn" href="https://apps.apple.com/app/id6822562906">Download on the App Store</a></div>
   </section>
 
@@ -383,7 +385,7 @@
     <div class="list">
       <details><summary>Who is VendorPro for?</summary><p>People who sell cards at shows, from a first table to every weekend. If you buy, sell and trade in person and want to know what you actually made, it's for you.</p></details>
       <details><summary>Which cards does it support?</summary><p>Pokémon (English and Japanese), One Piece and sports cards, plus graded slabs and sealed product like booster boxes and cases.</p></details>
-      <details><summary>Where do the prices come from?</summary><p>TCGplayer market prices for raw cards and sealed product, and eBay sold listings for slabs. Your inventory is repriced every night.</p></details>
+      <details><summary>Where do the prices come from?</summary><p>TCGplayer market prices for raw cards and sealed product, plus a one-tap link to eBay sold listings for any card, slabs included. Your inventory is repriced every night.</p></details>
       <details><summary>Does it work with no signal?</summary><p>Yes. Sales and buys are saved on your phone and sync when you're back online.</p></details>
       <details><summary>Can I bring my existing spreadsheet?</summary><p>Yes. Import a CSV, and export your inventory and history whenever you want.</p></details>
       <details><summary>Is there an Android version?</summary><p>It's on the way. <a href="#android" data-go="android">Join the waitlist</a> and we'll email you once when it's on Google Play.</p></details>
