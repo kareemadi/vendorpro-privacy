@@ -40,6 +40,7 @@
   .top nav { display: flex; gap: 6px; }
   .top nav a { text-decoration: none; font-weight: 500; font-size: 15px; padding: 8px 14px; border-radius: 999px; background: var(--paper); border: 1px solid var(--line); }
   .top nav a:hover { border-color: var(--ink); }
+  .top nav a.ig { display: inline-flex; align-items: center; padding: 8px 11px; }
   .top nav a.dl { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 
   /* ---------- horizontal scroller ---------- */
@@ -176,7 +177,7 @@
   @media (max-width: 760px) {
     :root { --header: 62px; }
     .top { padding: 0 12px; }
-    .top nav a:not(.dl) { display: none; }
+    .top nav a:not(.dl):not(.ig) { display: none; }
     .panel { padding: calc(var(--header) + 16px) 22px 44px; }
     .hero-card { padding: 28px 22px 26px; border-radius: 22px; }
     .hero-card p { font-size: 17px; }
@@ -215,6 +216,7 @@
     <a href="#pricing" data-go="pricing">Pricing</a>
     <a href="#faq" data-go="faq">FAQ</a>
     <a href="#android" data-go="android">Android</a>
+    <a class="ig" href="https://www.instagram.com/getvendorpro/" target="_blank" rel="noopener" aria-label="VendorPro on Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
     <a class="dl" href="https://apps.apple.com/app/id6822562906">Download</a>
   </nav>
 </header>
